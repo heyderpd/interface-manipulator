@@ -11,6 +11,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-io": "PUBLIC_URL=workflow-tojson npm run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

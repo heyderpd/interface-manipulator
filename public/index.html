@@ -10,8 +10,8 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%mxgraph/css/process.css">
-    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%mxgraph/css/wordpress.css">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/mxgraph/css/process.css">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/mxgraph/css/wordpress.css">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -20,15 +20,12 @@
       Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
-
-      PUBLIC_URL PUBLIC_URL PUBLIC_URL PUBLIC_URL PUBLIC_URL PUBLIC_URL PUBLIC_URL PUBLIC_URL PUBLIC_URL PUBLIC_URL 
     -->
     <title>React App</title>
     <script type="text/javascript">
-      mxBasePath = 'mxgraph';
+      mxBasePath = '%PUBLIC_URL%/mxgraph';
     </script>
-    <script type="text/javascript" src="%PUBLIC_URL%mxgraph/mxClient.min.js"></script>
-    <!-- <script type="text/javascript" src="mxgraph/js/mxClient.js"></script> -->
+    <script type="text/javascript" src="%PUBLIC_URL%/mxgraph/mxClient.min.js"></script>
   </head>
   <body>
     <noscript>
