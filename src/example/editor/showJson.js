@@ -1,63 +1,42 @@
 import React, { Component } from 'react'
-
-const map = (obj, fx) => Object.keys(obj).map(key => fx(obj[key]))
-
-const createTask = task => ({
-  id: task.id,
-  text: task.value.getAttribute('label')
-})
-
-const createLink = link => ({
-  from: link.source.id,
-  to: link.target.id
-})
-
-const drawGraphModel = () => {
-  try {
-    const cells = document.Editor.graph.model.cells
-    const state = {
-      tasks: [],
-      links: []
-    }
-
-    map(cells,
-      (elm) => {
-        try {
-          if (elm.value.tagName === 'Task') {
-            state.tasks.push(createTask(elm))
-          }
-          if (elm.value.tagName === 'Edge') {
-            state.links.push(createLink(elm))
-          }
-        } catch (err) {}
-      })
-    return state
-    
-  } catch (err) {
-    return null
-  }
-}
+import { drawGraphModel, jsonToModel, isChange } from './mxHelper'
 
 class ShowJson extends Component {
 	state = {
-		json: '' 
+    nextId: -1,
+    json: ''
+  }
+
+  handleTextChange (event) {
+    try {
+      const json = event.target.value
+      jsonToModel(json)
+      this.setState({ json })
+    } catch (err) { }
   }
   
   componentDidMount () {
     setInterval(() => {
       try {
-        const json = "JSON MODEL:\n" + JSON.stringify(drawGraphModel(), null, '  ')
-        this.setState({ json })
+        const nextId = isChange(this.state)
+        if (nextId && nextId >= 0) {
+          this.setState({
+            nextId,
+            json: JSON.stringify(drawGraphModel(), null, '  ')
+          })
+        }
       } catch (err) { }
-    }, 800)
+    }, 654)
   }
 	
 	render() {
 		return (
       <div className="json-wrp">
-        <pre id="json">
-          {this.state.json}
-        </pre>
+        <textarea
+          id="json"
+          value={this.state.json}
+          onChange={this.handleTextChange.bind(this)}
+        />
       </div>
 		)
 	}
