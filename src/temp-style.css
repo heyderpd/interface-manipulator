@@ -1,0 +1,25 @@
+.task-cube, .task-link {
+  width: 10em;
+  height: 10em;
+  display: flex;
+}
+
+.task-cube {
+  background-color: aquamarine;
+  position: absolute;
+}
+
+.task-link {
+  width: 2em;
+  height: 2em;
+  background-color: blue;
+  margin-left: auto;
+}
+
+.App {
+  position: absolute;
+}
+
+.draggable {
+  position: absolute;
+}
