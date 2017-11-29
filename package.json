@@ -10,8 +10,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "docs": "rm -rf docs && mkdir docs && cp -a ./build/. ./docs/",
+    "build-src": "PUBLIC_URL=. npm run build && npm run docs",
     "build": "react-scripts build",
-    "build-io": "PUBLIC_URL=. npm run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
